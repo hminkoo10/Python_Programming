@@ -1,9 +1,9 @@
 # =========================================================
 #  파이썬 문자열의 중요한 특징
 # =========================================================
-# 1. 문자열은 (     ) 이다 -> (       ) (문자열 연산 시 새로운 문자열이 만들어짐)
-# 2. 문자열은 (     ) 하다 -> (       ) (반복처리 가능)
-# 3. 문자열은 (   )가 있다 -> (       ) (인덱싱, 슬라이싱 가능)
+# 1. 문자열은 (원본 불변) 이다 -> (Immutable) (문자열 연산 시 새로운 문자열이 만들어짐)
+# 2. 문자열은 (반복가능) 하다 -> (Iterable) (반복처리 가능)
+# 3. 문자열은 (순서)가 있다 -> (Sequence) (인덱싱, 슬라이싱 가능)
 
 a = "Python"
 
@@ -11,71 +11,82 @@ a = "Python"
 # # 1. 문자열은 원본 불변이다 -> Immutable
 # # =========================================================
 
-# a[0] = "J"                          # 문자열 내용 수정이 가능할까?
-# print()
+# a[0] = "J"  # 문자열 내용 수정이 가능할까?
+
+b = [10, 20, 30]
+b[0] = 40
+print(b)
+
+# str.__set # 변경 X
+# list.__setitem__ # setitem > 변경가능
 
 # # 문자열 메소드로 변경해도 원본은 그대로, 새로운 문자열 객체가 생성됨
-# b = a.upper()
+b = a.upper()
 
-# print()
-# print()
-# print()                             # 같은 객체인가?
+print(a, b)
+print(id(a), id(b))
+print(a is b)  # 같은 객체인가? X
 
 # # 문자열 연결 시 + 연산도 새로운 문자열 객체를 만듦
-# a = "Hello"
-# print()
-# a += " Python"
-# print()
+a = "Hello"
+print(id(a))
+a += " Python"
+print(id(a))
+
+print(id(a[0]), id(a[0]))
 
 # # 문자열 vs 리스트 실행 시간 테스트
-# import time
+import time
 
-# my_str = ""
+my_str = ""
 
-# start = time.time()
-# for i in range(10):
-#     pass                                    # 매번 새로운 문자열 객체를 생성
-# end = time.time()
+start = time.time()
+for i in range(10):
+    my_str += str(i)  # 매번 새로운 문자열 객체를 생성
+end = time.time()
 
 # print(my_str)
-# print(f"실행 시간: {end - start:.6f}초")
+print(f"실행 시간: {end - start:.6f}초")
 
 # # 리스트의 append() 메소드 이용
-# my_list = []
+my_list = []
 
-# start = time.time()
-# for i in range(10):
-#     pass                                    # 동일 리스트 객체에 append
+start = time.time()
+for i in range(10):
+    my_list.append(str(i))  # 동일 리스트 객체에 append
 
-# s = "".join(my_list)
-# end = time.time()
+s = "".join(my_list)
+end = time.time()
 
 # print(s)
-# print(f"실행 시간: {end - start:.6f}초")
+print(f"실행 시간: {end - start:.6f}초")
 
 
 # # =========================================================
 # # 2. 문자열은 반복 가능하다 -> Iterable
 # # =========================================================
 
-# s = "Python"
+s = "Python"
 
-# for ch in s:
-#     print(ch, end=" ")
-# print()
+for ch in s:
+    print(ch, end=" ")
+print(s)
 
-# # Iterator에 의해 반복 처리
-#                 # 문자열(Iterable)에 iter()를 호출하면 Iterator 객체가 생성됨
-# print()             # 인덱스 0을 반환하고, 다음 위치(인덱스 1)로 이동
-# print()             # 인덱스 1을 반환하고, 다음 위치(인덱스 2)로 이동
+# Iterator에 의해 반복 처리
+it = iter(s)    # 문자열(Iterable)에 iter()를 호출하면 Iterator 객체가 생성됨
+print(next(it))  # 인덱스 0을 반환하고, 다음 위치(인덱스 1)로 이동
+print(next(it))  # 인덱스 1을 반환하고, 다음 위치(인덱스 2)로 이동
 
-# # 같은 Iterable 데이터 타입인 리스트로 변환 가능
-# print()
+# 같은 Iterable 데이터 타입인 리스트로 변환 가능
+print(list(s))
 
-# # 문자열 언패킹도 가능
-# a, b, c, d, e, f = s
-# print(a, b, c, d, e, f)
+# 문자열 언패킹도 가능
+a, b, c, d, e, f = s
+print(a, b, c, d, e, f)
 
+# 확정 언패킹
+a, *b, c = s
+print(a, b)
 
 # # =========================================================
 # # 3. 문자열은 순서가 있다 -> Sequence
