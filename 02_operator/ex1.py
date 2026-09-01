@@ -7,10 +7,14 @@ b = 3
 print(a + b)  # 덧셈
 print(a - b)  # 뺄셈
 print(a * b)  # 곱셈
-print(a / b)  # 나눗셈
+print(a / b)  # 나눗셈 - Float
 print(a % b)  # 나머지
 print(a // b)  # 몫
 print(a ** b)  # 제곱
+
+# 10 / 3 = 3
+# int / int = int
+print(10 / 2)
 
 # 복합 대입 연산자
 a += 4

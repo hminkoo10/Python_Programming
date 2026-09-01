@@ -16,3 +16,15 @@ print(3 in [1,2,3])
 # int max = a > b ? a : b;
 a, b = 2, 3
 max_num = a if a > b else b
+
+# a값이 짝수면 "짝수", 홀수면 "홀수" 출력
+a = 10
+print("짝수" if a % 2 == 0 else "홀수")
+
+score = 85
+# 90점 이상이면 "A"
+# 80점 이상이면 "B"
+# 70점 이상이면 "C"
+# 70점 미만이면 "D"
+
+print("A" if score >= 90 else "B" if score >= 80 else "C" if score >= 70 else "D")
