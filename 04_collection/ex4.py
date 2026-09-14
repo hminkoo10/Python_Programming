@@ -118,7 +118,6 @@ scores = (90, 85, 78, 92, 88, 76)
 
 print(f"max 점수: {max(scores)}점, min 점수: {min(scores)}점")  # ✅ max 점수: 92점, min 점수: 76점
 
-
 # 5️⃣ 과일가게 총 재고 금액 구하기
 stocks = (
     ("사과", 1000, 5),
