@@ -183,7 +183,6 @@ Dog("멍멍이", 5, "푸들").show_info()
 # 메소드 탐색 순서 : 객체 자신의 클래스 → 부모 클래스 → 그 위 부모 → ... → object
 print(Dog.mro())
 
-
 # =========================================================
 #  🔥 실습 문제
 # =========================================================
@@ -208,8 +207,6 @@ class Student(SchoolMember):
     def show_info(self):
         super().show_info()
         print(f"학년: {self.grade}학년")
-    
-
 
 # Teacher 자식 클래스 작성하기
 class Teacher(SchoolMember):
@@ -224,10 +221,7 @@ class Teacher(SchoolMember):
         super().show_info()
         print(f"과목: {self.subject}")
 
-
-
 # 1️⃣ 부모 클래스 인스턴스 변수: name(이름), phone(연락처) -> 생성자 구현
-
 
 # 2️⃣ 자식 클래스 인스턴스 변수 -> 생성자 구현
 # - Student 클래스: grade(학년)
@@ -251,7 +245,6 @@ print(issubclass(Student, SchoolMember))        # True
 print(issubclass(Teacher, SchoolMember))        # True
 print(issubclass(Student, Teacher))             # False
 
-
 # 5️⃣ 인스턴스 메소드 구현
 # - SchoolMember 클래스: show_info() 메소드 구현
 # - Student, Teacher 클래스: show_info() 메소드 오버라이딩
@@ -261,10 +254,8 @@ s.show_info()                                   # 이름: 뽀로로, 전화번�
 t.show_info()                                   # 이름: 크롱선생님, 전화번호: 222-2222
                                                 # 과목: 파이썬
 
-
 # 6️⃣ Student 클래스: learn() 메소드 구현
 s.learn(t)                                      # 뽀로로가 크롱선생님에게 파이썬 과목을 배웁니다.
-
 
 # 7️⃣ Teacher 클래스: teach() 메소드 구현
 t.teach(s)                                      # 크롱선생님이 뽀로로에게 파이썬 과목을 가르칩니다.
