@@ -164,4 +164,4 @@ for shape in shapes:                                        # 사각형 넓이: 
     total += shape.area()                                   # 원 넓이: 78.5cm
     print(f"{shape.name} 넓이: {shape.area()}cm")           # 삼각형 넓이: 9.0cm
 
-print("전체 넓이:", total)            # 전체 넓이: 99.5cm
+print(f"전체 넓이: {total}cm^2")            # 전체 넓이: 99.5cm
