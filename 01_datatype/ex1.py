@@ -4,7 +4,6 @@ b = 3
 print(a, b)
 
 # a = 2, b = 3
-a = 2, b = 3
 a, b = 2, 3  # 권장
 print(a, b)
 

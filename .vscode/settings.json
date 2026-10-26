@@ -1,1 +1,11 @@
-{}
+{
+    "code-runner.executorMap": {
+        "python": "uv run python -u $fullFileName"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.fileDirectoryAsCwd": false,
+    "code-runner.saveFileBeforeRun": true,
+    "terminal.integrated.env.windows": {
+        "REQUESTS_CA_BUNDLE": "C:\\Temp\\cacert.pem"
+    }
+}
