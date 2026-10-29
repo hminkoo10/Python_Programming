@@ -13,18 +13,20 @@
 #  5) 서버로부터 데이터 응답(Response): 대부분 XML, JSON 형식
 # ===========================================================
 
-import requests
 import webbrowser
+
+import requests
 
 # ===========================================================
 # 1. 랜덤 강아지 사진 가져오기
 # - https://dog.ceo
 # ===========================================================
 
+
 def get_dog_image():
     try:
         url = "https://dog.ceo/api/breeds/image/random"
-        response = requests.get(url, timeout=10)        
+        response = requests.get(url, timeout=10)
         if response.status_code != 200:
             print(f"요청 실패 (상태 코드: {response.status_code})")
             return
@@ -41,6 +43,7 @@ def get_dog_image():
     except Exception as e:
         print(f"오류 발생: {e}")
 
+
 # get_dog_image()
 
 
@@ -48,6 +51,7 @@ def get_dog_image():
 #  2. 랜덤 고양이 사진 가져오기
 #  - https://thecatapi.com/
 # ===========================================================
+
 
 def get_cat_image():
     try:
@@ -71,6 +75,7 @@ def get_cat_image():
     except Exception as e:
         print(f"오류 발생: {e}")
 
+
 # get_cat_image()
 
 
@@ -78,6 +83,7 @@ def get_cat_image():
 #  3. 대학 검색하기
 #  - https://github.com/Hipo/university-domains-list
 # ===========================================================
+
 
 def get_univ_list(country="Korea, Republic of"):
     try:
@@ -101,7 +107,8 @@ def get_univ_list(country="Korea, Republic of"):
         print(f"요청 중 오류 발생: {e}")
     except Exception as e:
         print(f"오류 발생: {e}")
-        
+
+
 # get_univ_list()
 # get_univ_list("United States")
 
@@ -111,6 +118,7 @@ def get_univ_list(country="Korea, Republic of"):
 #  - https://open-meteo.com/
 # ===========================================================
 
+
 def get_weather(lat, lon):
     try:
         url = "https://api.open-meteo.com/v1/forecast"
@@ -119,7 +127,7 @@ def get_weather(lat, lon):
             "latitude": lat,
             "longitude": lon,
             "current": ["temperature_2m", "windspeed_10m"],
-            "timezone": "Asia/Seoul"
+            "timezone": "Asia/Seoul",
         }
         response = requests.get(url, timeout=10, params=params)
         if response.status_code != 200:
@@ -127,9 +135,11 @@ def get_weather(lat, lon):
             return
 
         data = response.json()
-        print(f"현재 기온: {data['current']['temperature_2m']}°C")
-        print(f"현재 바람 속도: {data['current']['windspeed_10m']} km/h")
-        
+        # print(data)
+
+        print(f"측정 일시: {data['current']['time']}")
+        print(f"기온: {data['current']['temperature_2m']}°C")
+        print(f"풍속: {data['current']['windspeed_10m']} km/h")
 
     except requests.exceptions.Timeout as e:
         print(f"서버 응답시간 초과: {e}")
@@ -137,5 +147,6 @@ def get_weather(lat, lon):
         print(f"요청 중 오류 발생: {e}")
     except Exception as e:
         print(f"오류 발생: {e}")
+
 
 get_weather(lat=37.3416467, lon=126.8310305)
