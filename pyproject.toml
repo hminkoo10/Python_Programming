@@ -5,7 +5,9 @@ description = "2026 Dimigo 1-1 Python Programming Class"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "pandas>=3.1.0",
     "python-dotenv==1.2.4",
     "requests==2.34.2",
     "ruff>=0.17.3",
+    "streamlit>=1.66.1",
 ]
